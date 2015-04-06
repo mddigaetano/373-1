@@ -3,18 +3,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
 
 #define N 10
 
 void ins_sort_interno(int v[],int n){
-    int i,j,scambio;
+    int i,j,temp;
     
-    for(i=0;i<n;i++){
-        for(j=i;(j>0) && (v[j-1]>v[j]);j--){
-            scambio=v[j];
+    for(i=1;i<n;i++){
+        temp=v[i];
+        for(j=i;(j>0)&&(v[j-1]>temp);j--){
             v[j]=v[j-1];
-            v[j-1]=scambio;
         }
+        v[j]=temp;
     }
 }
 
